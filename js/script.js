@@ -71,12 +71,12 @@ var dailyWeather = function(posObj) {
     dailyPromise.then(dailyHTML)
 }
 
-var generateDailyHTML = function(dailyData) {
+var dailyHTML = function(dailyData) {
     var daysArray = dailyData.daily.data
     var completeHtmlString = ''
     for(var i = 0; i < daysArray.length; i++){
         var singleDay = daysArray[i]
-        completeHtmlString += generateDayHTML(singleDay)
+        completeHtmlString += singleDayHTML(singleDay)
     }
     container.innerHTML = completeHtmlString
 }
