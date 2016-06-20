@@ -3,24 +3,13 @@
     font-family: 'Copse', serif;
 }
 
-img {
-    width: 100%;
-    position: relative;
+/* BUTTON FORMATTING */
+
+.buttons {
+    display: flex;
 }
 
 button {
-    position: absolute;
-    bottom: 50%;
-    left: 5%;
-    color: #000000;
-    background: #ffffff;
-}
-
-#searchBar {
-    width: 100%;
-    position: absolute;
-    left: 35%;
-    top: 5%;
-    opacity: .1;
+    flex: 1;
 }
 

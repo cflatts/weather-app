@@ -40,13 +40,13 @@ var hourlyHTML = function(hourlyData) {
     var completeHtmlString = ''
     for(var i = 0; i < 12; i++) {
         var singleHour = hourlyArray[i]
-        completeHtmlString += generateHourHTML(singleHour)
+        completeHtmlString += singleHourHtml(singleHour)
     }
     container.innerHTML = completeHtmlString
 }
 
-var generateHourHTML = function(apiResponse){
-    console.log(apiResponse)
+var singleHourHtml = function(apiResponse){
+    // console.log(apiResponse)
     var time = apiResponse.time
         time = time * 1000
     var d = new Date(time)
@@ -71,7 +71,7 @@ var dailyWeather = function(posObj) {
     dailyPromise.then(dailyHTML)
 }
 
-var dailyHTML = function(dailyData) {
+var generateDailyHTML = function(dailyData) {
     var daysArray = dailyData.daily.data
     var completeHtmlString = ''
     for(var i = 0; i < daysArray.length; i++){
@@ -81,7 +81,7 @@ var dailyHTML = function(dailyData) {
     container.innerHTML = completeHtmlString
 }
 
-var generateDayHTML = function(apiResponse){
+var singleDayHTML = function(apiResponse){
     var timeValue = apiResponse.time
     var presentDate = new Date(timeValue * 1000)
     var daysOfTheWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
