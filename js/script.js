@@ -18,7 +18,6 @@ var currentWeather = function(posObj) {
 }
 
 var currentHTML = function(apiResponse){
-    console.log(apiResponse)
     var formattedTime = new Date(apiResponse.currently.time).toLocaleTimeString()
     var htmlString = '<div class = "currentTempStyles">'
         htmlString +=   '<p>The temperature is now: </p>'
@@ -55,9 +54,8 @@ var singleHourHtml = function(apiResponse){
     var d = new Date(time)
 
     var hours = (d.getHours() > 12) ?  d.getHours() - 12 + ':00 PM' : d.getHours() + ':00 AM'
-    var formattedTime = hours
     var htmlString = '<div class = "hourlyTempStyles">'
-        htmlString +=   '<p>' + formattedTime + '</p>'
+        htmlString +=   '<p>' + hours + '</p>'
         htmlString +=   '<p>' + Math.round(apiResponse.apparentTemperature) + '&deg; F</p>'
         htmlString +=   '<p>' + apiResponse.summary + '</p>'
         htmlString += '</div>'
