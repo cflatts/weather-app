@@ -2,6 +2,8 @@
 // desired Url format: https://api.forecast.io/forecast/APIKEY/LATITUDE,LONGITUDE
 
 var request = require('request')
+var express = require('express')
+var app = express()
 // console.log(request)
 
 var token = '24f2aa04159572709868a25ac5846300'
