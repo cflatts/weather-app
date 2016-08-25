@@ -19,11 +19,15 @@ var currentWeather = function(posObj) {
     // console.log('in current weather')
     var latitude = posObj.coords.latitude,
         longitude = posObj.coords.longitude
-    var completeUrl = rootUrl + '/' + latitude + ',' + longitude
+    var completeUrl = rootUrl + '/' + latitude + ',' + longitude,
+        options = {
+            uri: completeUrl,
+            origin: '*'
+        }
     //     currentPromise = $.getJSON(completeUrl)
     // currentPromise.then(currentHTML)
     // console.log(completeUrl)
-    request(completeUrl, function(error, response, body) {
+    request(options, function(error, response, body) {
         if(!error && response.statusCode === 200) {
             // console.log(typeof body)
             currentHTML(body)
@@ -48,10 +52,14 @@ var currentHTML = function(apiResponse){
 var hourlyWeather = function(posObj) {
     var latitude = posObj.coords.latitude,
         longitude = posObj.coords.longitude
-    var completeUrl = rootUrl + '/' + latitude + ',' + longitude
+    var completeUrl = rootUrl + '/' + latitude + ',' + longitude,
+        options = {
+            uri: completeUrl,
+            origin: '*'
+        }
     //     hourlyPromise = $.getJSON(completeUrl)
     // hourlyPromise.then(hourlyHTML)
-    request(completeUrl, function(error, response, body) {
+    request(options, function(error, response, body) {
         if(!error && response.statusCode === 200) {
             // console.log(typeof body)
             hourlyHTML(body)
@@ -91,10 +99,14 @@ var singleHourHtml = function(apiResponse){
 var dailyWeather = function(posObj) {
     var latitude = posObj.coords.latitude,
         longitude = posObj.coords.longitude
-    var completeUrl = rootUrl + '/' + latitude + ',' + longitude
+    var completeUrl = rootUrl + '/' + latitude + ',' + longitude,
+        options = {
+            uri: completeUrl,
+            origin: '*'
+        }
     //     dailyPromise = $.getJSON(completeUrl)
     // dailyPromise.then(dailyHTML)
-    request(completeUrl, function(error, response, body) {
+    request(options, function(error, response, body) {
         if(!error && response.statusCode === 200) {
             // console.log(typeof body)
             dailyHTML(body)
