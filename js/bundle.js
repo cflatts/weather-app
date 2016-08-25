@@ -16,23 +16,23 @@ var container = document.querySelector('#selectedWeather'),
 // CURRENT WEATHER SET UP
 
 var currentWeather = function(posObj) {
-    console.log('in current weather')
+    // console.log('in current weather')
     var latitude = posObj.coords.latitude,
         longitude = posObj.coords.longitude
     var completeUrl = rootUrl + '/' + latitude + ',' + longitude
     //     currentPromise = $.getJSON(completeUrl)
     // currentPromise.then(currentHTML)
-    console.log(completeUrl)
+    // console.log(completeUrl)
     request(completeUrl, function(error, response, body) {
         if(!error && response.statusCode === 200) {
-            console.log(typeof body)
+            // console.log(typeof body)
             currentHTML(body)
         }
     })
 }
 
 var currentHTML = function(apiResponse){
-    console.log(typeof apiResponse)
+    // console.log(typeof apiResponse)
     var apiResponse = JSON.parse(apiResponse)
     var formattedTime = new Date(apiResponse.currently.time).toLocaleTimeString()
     var htmlString = '<div class = "currentTempStyles">'
@@ -48,12 +48,20 @@ var currentHTML = function(apiResponse){
 var hourlyWeather = function(posObj) {
     var latitude = posObj.coords.latitude,
         longitude = posObj.coords.longitude
-    var completeUrl = rootUrl + '/' + latitude + ',' + longitude,
-        hourlyPromise = $.getJSON(completeUrl)
-    hourlyPromise.then(hourlyHTML)
+    var completeUrl = rootUrl + '/' + latitude + ',' + longitude
+    //     hourlyPromise = $.getJSON(completeUrl)
+    // hourlyPromise.then(hourlyHTML)
+    request(completeUrl, function(error, response, body) {
+        if(!error && response.statusCode === 200) {
+            console.log(typeof body)
+            hourlyHTML(body)
+        }
+    })
 }
 
 var hourlyHTML = function(hourlyData) {
+    console.log(typeof hourlyData)
+    var hourlyData = JSON.parse(hourlyData)
     var hourlyArray = hourlyData.hourly.data
     var completeHtmlString = ''
     for(var i = 0; i < 12; i++) {
