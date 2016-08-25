@@ -53,14 +53,14 @@ var hourlyWeather = function(posObj) {
     // hourlyPromise.then(hourlyHTML)
     request(completeUrl, function(error, response, body) {
         if(!error && response.statusCode === 200) {
-            console.log(typeof body)
+            // console.log(typeof body)
             hourlyHTML(body)
         }
     })
 }
 
 var hourlyHTML = function(hourlyData) {
-    console.log(typeof hourlyData)
+    // console.log(typeof hourlyData)
     var hourlyData = JSON.parse(hourlyData)
     var hourlyArray = hourlyData.hourly.data
     var completeHtmlString = ''
@@ -91,12 +91,19 @@ var singleHourHtml = function(apiResponse){
 var dailyWeather = function(posObj) {
     var latitude = posObj.coords.latitude,
         longitude = posObj.coords.longitude
-    var completeUrl = rootUrl + '/' + latitude + ',' + longitude,
-        dailyPromise = $.getJSON(completeUrl)
-    dailyPromise.then(dailyHTML)
+    var completeUrl = rootUrl + '/' + latitude + ',' + longitude
+    //     dailyPromise = $.getJSON(completeUrl)
+    // dailyPromise.then(dailyHTML)
+    request(completeUrl, function(error, response, body) {
+        if(!error && response.statusCode === 200) {
+            // console.log(typeof body)
+            dailyHTML(body)
+        }
+    })
 }
 
 var dailyHTML = function(dailyData) {
+    var dailyData = JSON.parse(dailyData)
     var daysArray = dailyData.daily.data
     var completeHtmlString = ''
     for(var i = 0; i < daysArray.length; i++){
