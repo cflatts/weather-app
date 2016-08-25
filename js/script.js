@@ -21,7 +21,6 @@ var currentWeather = function(posObj) {
     var completeUrl = rootUrl + '/' + latitude + ',' + longitud
     //     currentPromise = $.getJSON(completeUrl)
     // currentPromise.then(currentHTML)
-
     request(completeUrl, function(error, response, body) {
         if(!error && response.statusCode === 200) {
             console.log(body)
