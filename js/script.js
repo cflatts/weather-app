@@ -1,4 +1,8 @@
 // desired Url format: https://api.forecast.io/forecast/APIKEY/LATITUDE,LONGITUDE
+
+var request = require('request')
+console.log(request)
+
 var token = '24f2aa04159572709868a25ac5846300'
 var rootUrl = "https://api.forecast.io/forecast/" + token
 
@@ -7,14 +11,22 @@ var container = document.querySelector('#selectedWeather'),
     hourlyButton = document.querySelector('#hourly'),
     dailyButton = document.querySelector('#daily')
 
+
 // CURRENT WEATHER SET UP
 
 var currentWeather = function(posObj) {
+    console.log(app)
     var latitude = posObj.coords.latitude,
         longitude = posObj.coords.longitude
-    var completeUrl = rootUrl + '/' + latitude + ',' + longitude,
-        currentPromise = $.getJSON(completeUrl)
-    currentPromise.then(currentHTML)
+    var completeUrl = rootUrl + '/' + latitude + ',' + longitud
+    //     currentPromise = $.getJSON(completeUrl)
+    // currentPromise.then(currentHTML)
+
+    request(completeUrl, function(error, response, body) {
+        if(!error && response.statusCode === 200) {
+            console.log(body)
+        }
+    })
 }
 
 var currentHTML = function(apiResponse){
@@ -121,8 +133,12 @@ var controller = function() {
 }
 
 
-if (window.location.hash === '') window.location.hash = 'current'
-else controller()
+if (window.location.hash === '') {
+    window.location.hash = 'current'
+}
+else {
+    controller()
+}
 
 
 window.addEventListener('hashchange', controller)
