@@ -18,5 +18,8 @@
   "homepage": "https://github.com/cflatts/weather-app#readme",
   "dependencies": {
     "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "watchify": "^3.7.0"
   }
 }
