@@ -4,7 +4,8 @@
   "description": "an app that tells you the local weather at different times",
   "main": "./js/script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "watchify js/script.js -o dist/bundle.js -v"
   },
   "repository": {
     "type": "git",

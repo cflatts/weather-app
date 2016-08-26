@@ -1,7 +1,7 @@
-// desired Url format: https://api.forecast.io/forecast/APIKEY/LATITUDE,LONGITUDE
+ // desired Url format: https://api.forecast.io/forecast/APIKEY/LATITUDE,LONGITUDE
 
-var request = require('request')
-console.log(request)
+var express = require('express')
+var app = express()
 
 var token = '24f2aa04159572709868a25ac5846300'
 var rootUrl = "https://api.forecast.io/forecast/" + token
@@ -18,7 +18,7 @@ var currentWeather = function(posObj) {
     console.log(app)
     var latitude = posObj.coords.latitude,
         longitude = posObj.coords.longitude
-    var completeUrl = rootUrl + '/' + latitude + ',' + longitud
+    var completeUrl = rootUrl + '/' + latitude + ',' + longitude
     //     currentPromise = $.getJSON(completeUrl)
     // currentPromise.then(currentHTML)
     request(completeUrl, function(error, response, body) {
