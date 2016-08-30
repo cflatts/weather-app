@@ -6,7 +6,7 @@ const requestHandler = (request, response) => {
     response.end('Hello Node.js Server!')
 }
 
-const server = http.createServer(requesthandler)
+const server = http.createServer(requestHandler)
 
 server .listen(port, (error) => {
     if(error) {
