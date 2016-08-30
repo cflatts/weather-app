@@ -8,6 +8,9 @@ var container = document.querySelector('#selectedWeather'),
     hourlyButton = document.querySelector('#hourly'),
     dailyButton = document.querySelector('#daily')
 
+let Router =require('express').Router
+const apiRouter = Router()
+
 
 // CURRENT WEATHER SET UP
 
@@ -18,10 +21,12 @@ var currentWeather = function(posObj) {
     var completeUrl = rootUrl + '/' + latitude + ',' + longitude
     //     currentPromise = $.getJSON(completeUrl)
     // currentPromise.then(currentHTML)
-    request(completeUrl, function(error, response, body) {
-        if(!error && response.statusCode === 200) {
-            console.log(body)
-        }
+    apiRouter.get('/weather', function(request, response) {
+        request(completeUrl, function(error, response, body) {
+            if(!error && response.statusCode === 200) {
+                console.log(body)
+            }
+        })
     })
 }
 
