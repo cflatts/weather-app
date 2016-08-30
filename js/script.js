@@ -1,8 +1,5 @@
  // desired Url format: https://api.forecast.io/forecast/APIKEY/LATITUDE,LONGITUDE
 
-var express = require('express')
-var app = express()
-
 var token = '24f2aa04159572709868a25ac5846300'
 var rootUrl = "https://api.forecast.io/forecast/" + token
 
