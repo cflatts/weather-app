@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const renderFile = require('ejs').renderFile
+console.log(renderFile)
 app.use(express.static(__dirname + '/styles'))
 app.use(express.static(__dirname + '/dist'))
 
