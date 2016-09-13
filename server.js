@@ -1,10 +1,11 @@
 const express = require('express')
 const app = express()
 const port = 3000
-var path = require('path')
+app.use(express.static(__dirname + '/styles'))
+app.use(express.static(__dirname + '/dist'))
 
-app.get('/', (request, response) => {
-    response.sendFile(path.join(__dirname+'/index.html'))
+app.get('/',function(request,response){
+  response.sendFile('index.html');
 })
 
 app.listen(port, (error) => {
