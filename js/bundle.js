@@ -4,7 +4,7 @@
 var request = require('request')
 // console.log(request)
 
-var token = '24f2aa04159572709868a25ac5846300'
+var token = ''
 var rootUrl = "https://api.forecast.io/forecast/" + token
 
 var container = document.querySelector('#selectedWeather'),
