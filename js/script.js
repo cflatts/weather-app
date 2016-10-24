@@ -8,7 +8,7 @@ var container = document.querySelector('#selectedWeather'),
     hourlyButton = document.querySelector('#hourly'),
     dailyButton = document.querySelector('#daily')
 
-let Router =require('express').Router
+let Router = require('express').Router
 const apiRouter = Router()
 
 
